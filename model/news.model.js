@@ -1,8 +1,8 @@
 import { Schema, model } from "mongoose";
 
 const newsSchema = new Schema({
-  owner: {type: Schema.Types.ObjectId, ref: "User"},
-  news: {type: Schema.Types.ObjectId, ref: "News"},
+  title: {type:String, required: true},
+  news: {type: String, required: true},
 })
 
 export const NewsModel = model("News", newsSchema)
