@@ -31,6 +31,20 @@ newsRouter.get("/", async (req, res) => {
   }
 });
 
+// READ ONE
+
+newsRouter.get("/:id", async (req, res) => {
+  try {
+    const resultNew = await NewsModel.findOne({_id: req.params.id});
+
+    return res.status(200).json(resultNew);
+  } catch (error) {
+    console.log(error);
+
+    return res.json(error);
+  }
+});
+
 //UPDATE
 
 newsRouter.put("/:id", async (req, res) => {
